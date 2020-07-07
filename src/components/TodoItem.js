@@ -7,6 +7,21 @@ import App from '../App'
 
 
 function TodoItem (props) {
+
+  const completedStyle = {
+    fontStyle: "Italic",
+    color: "gray",
+    textDecoration: "line-through"
+  }
+
+  const uncompletedStyle = {
+    fontStyle: "Normal",
+    color: "black",
+    textDecoration: "none"
+  }
+
+  
+
     return (
     <div className = "todo-item">
       <input type="checkbox" 
@@ -14,7 +29,7 @@ function TodoItem (props) {
       onChange = {() => props.handleChange(props.item.id)} // onChange passes an anonymous function that calls the handleChange function that passes the items and their ids
       
       />
-       <p>{props.item.text}</p>
+       <p style={props.item.completed ? completedStyle : uncompletedStyle}>{props.item.text}</p>
     </div>
     )
 }
