@@ -17,15 +17,15 @@ class App extends Component {
   }
 
   handleChange(id) {
-    this.setState(prevState => {
-      const updatedTodos = prevState.todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed
+    this.setState(prevState => { // here we are looking at a previous state and creating a new array
+      const updatedTodos = prevState.todos.map(todo => { // uses map to loop over todosData
+        if (todo.id === id) { // this is the todo item we want to flip 
+          todo.completed = !todo.completed // this is where todo.completed changes from true to false or vice versa
         }
-        return todo // returns todo item
+        return todo // returns todo item and puts it into the new array
       }) // map ends
-      return {
-        todos: updatedTodos
+      return { // returns the new version of state as an object
+        todos: updatedTodos  // the todos property and the updated version of todos
       }
     }) // setState ends
   } // event handler ends
